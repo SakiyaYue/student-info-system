@@ -15,7 +15,7 @@ def main():
                 print("Exiting...")
                 running = False
             elif option == 1:
-                insert()
+                create()
             elif option == 2:
                 pass
             elif option == 3:
@@ -46,7 +46,7 @@ def save(students):
         stu_txt.write(str(info) + "\n")
     stu_txt.close()
 
-def insert():
+def create():
     students = []
     flag = True
     while flag:
