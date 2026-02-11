@@ -1,6 +1,8 @@
 import os
 import re
 
+filename = "students.txt"
+
 def main():
     running = True
     while (running):
@@ -13,7 +15,7 @@ def main():
                 print("Exiting...")
                 running = False
             elif option == 1:
-                pass
+                insert()
             elif option == 2:
                 pass
             elif option == 3:
@@ -34,6 +36,15 @@ def menu():
     print("5 Top K")
     print("0 Exit")
     print("="*22)
+
+def save(students):
+    try:
+        stu_txt = open(filename, "a")
+    except Exception:
+        stu_txt = open(filename, "w")
+    for info in students:
+        stu_txt.write(str(info) + "\n")
+    stu_txt.close()
 
 def insert():
     students = []
@@ -62,7 +73,7 @@ def insert():
         students.append(student)
         inputflag = input("Continue? (y/n) :")
         flag = True if inputflag == 'y' else False
-        # save(students)
-        # print("Saved successfully.")
+    save(students)
+    print("Saved successfully.")
 
 main()
