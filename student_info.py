@@ -35,4 +35,34 @@ def menu():
     print("0 Exit")
     print("="*22)
 
+def insert():
+    students = []
+    flag = True
+    while flag:
+        id = input("ID: ")
+        if not id:
+            break
+        name = input("Name: ")
+        if not name:
+            break
+        try:
+            python = int(input("score of Python: "))
+            java = int(input("score of Java: "))
+            c = int(input("score of C: "))
+        except:
+            print("Invalid input. Please enter a integer.")
+            continue
+        student = {
+            "id": id,
+            "name": name,
+            "python": python,
+            "java": java,
+            "c": c
+        }
+        students.append(student)
+        inputflag = input("Continue? (y/n) :")
+        flag = True if inputflag == 'y' else False
+        # save(students)
+        # print("Saved successfully.")
+
 main()
